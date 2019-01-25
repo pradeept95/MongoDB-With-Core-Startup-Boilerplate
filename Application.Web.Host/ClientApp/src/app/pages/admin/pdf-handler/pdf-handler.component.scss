@@ -1,0 +1,15 @@
+@import "var";
+
+.clickable {
+  cursor: pointer;
+}
+
+.image-cell {
+  img {
+    background: $theme-app-bar;
+  }
+}
+
+mat-row.mat-row.clickable.selected.route-animations-elements.ng-star-inserted {
+  background: #3dcece;
+}

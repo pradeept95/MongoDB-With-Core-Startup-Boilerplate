@@ -1,0 +1,74 @@
+<div class="page" fxLayout="column" fxLayoutAlign="center center">
+  <div class="card border-radius elevation">
+    <div class="header padding" fxLayout="column" fxLayoutAlign="center center">
+      <img src="/assets/img/icon.png" />
+    </div>
+    <form
+      class="padding"
+      fxLayout="column"
+      fxLayoutGap="16px"
+      [formGroup]="form"
+      (ngSubmit)="login()"
+    >
+      <alert></alert>
+      <div fxFlex="auto" fxLayout="column">
+        <mat-form-field fxFlex="grow">
+          <mat-label>Username</mat-label>
+          <input matInput required formControlName="usernameOrEmail" />
+          <mat-error *ngIf="form.get('usernameOrEmail').hasError('required')"
+            >Username is Required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field fxFlex="grow">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [type]="inputType"
+            formControlName="password"
+            required
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="toggleVisibility()"
+            matTooltip="Toggle Visibility"
+          >
+            <mat-icon *ngIf="visible">visibility</mat-icon>
+            <mat-icon *ngIf="!visible">visibility_off</mat-icon>
+          </button>
+          <mat-hint>Click the eye to toggle visibility</mat-hint>
+          <mat-error *ngIf="form.get('password').hasError('required')"
+            >Password is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <mat-checkbox class="caption" formControlName="isRemember"
+          >Remember Me</mat-checkbox
+        >
+        <mat-progress-spinner
+          mode="indeterminate"
+          color="accent"
+          *ngIf="loading"
+          [diameter]="20"
+          >Logging in...</mat-progress-spinner
+        >
+        <!-- <a class="caption" [routerLink]="['/forgot-password']">Forgot Password?</a> -->
+      </div>
+      <button
+        type="submit"
+        color="primary"
+        [disabled]="loading"
+        mat-raised-button
+      >
+        SIGN IN
+      </button>
+      <!-- <p class="secondary-text text-center">
+        Don't have an account?<br/>
+        <a [routerLink]="['/register']">Click here to create one</a>
+      </p> -->
+    </form>
+  </div>
+</div>

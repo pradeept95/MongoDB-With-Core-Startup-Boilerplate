@@ -1,0 +1,87 @@
+<div class="padding">
+  <fury-breadcrumbs class="capitalize" [crumbs]="['Setting']">
+  </fury-breadcrumbs>
+
+  <div fxLayout="column">
+    <div
+      fxFlex="noshrink"
+      fxLayout="column"
+      fxLayout.gt-sm="row"
+      fxLayoutAlign.gt-sm="start stretch"
+    >
+      <fury-card class="basic-forms route-animations-elements" fxFlex="grow">
+        <fury-card-header>
+          <fury-card-header-title class="capitalize">
+            Setting</fury-card-header-title
+          >
+          <fury-card-header-sub-title
+            >Manage Setting</fury-card-header-sub-title
+          >
+        </fury-card-header>
+        <fury-card-content fxLayout="column">
+          <form [formGroup]="form" (ngSubmit)="update()">
+            <div class="content" fxLayout="column" fxLayoutGap="8px">
+              <mat-form-field>
+                <mat-label>Default Directory Path</mat-label>
+                <input
+                  matInput
+                  formControlName="DefaultDirectoryPath"
+                  required
+                />
+                <mat-error
+                  *ngIf="form.get('DefaultDirectoryPath').hasError('required')"
+                  >Default Directory Path is required</mat-error
+                >
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Directory Path</mat-label>
+                <input matInput formControlName="DirectoryPath" required />
+                <mat-error
+                  *ngIf="form.get('DirectoryPath').hasError('required')"
+                  >Directory Path is required</mat-error
+                >
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Archive Directory Path</mat-label>
+                <input
+                  matInput
+                  formControlName="ArchiveDirectoryPath"
+                  required
+                />
+                <mat-error
+                  *ngIf="form.get('ArchiveDirectoryPath').hasError('required')"
+                  >Archive Directory Path is required</mat-error
+                >
+              </mat-form-field>
+
+              <div
+                class="actions"
+                fxLayout="row"
+                fxLayoutAlign="end center"
+                fxLayoutGap="8px"
+              >
+                <div>
+                  <mat-progress-spinner
+                    mode="indeterminate"
+                    color="accent"
+                    *ngIf="isLoading"
+                    [diameter]="30"
+                  ></mat-progress-spinner>
+                </div>
+                <button
+                  mat-raised-button
+                  type="submit"
+                  color="primary"
+                  [disabled]="form.invalid || isLoading"
+                >
+                  UPDATE
+                </button>
+              </div>
+            </div>
+          </form>
+        </fury-card-content>
+      </fury-card>
+    </div>
+  </div>
+</div>

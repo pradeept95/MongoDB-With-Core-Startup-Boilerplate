@@ -1,0 +1,170 @@
+<div class="padding">
+  <fury-breadcrumbs
+    class="capitalize"
+    [current]="mode"
+    [crumbs]="['User Management']"
+  >
+  </fury-breadcrumbs>
+
+  <div fxLayout="column">
+    <div
+      fxFlex="noshrink"
+      fxLayout="column"
+      fxLayout.gt-sm="row"
+      fxLayoutAlign.gt-sm="start stretch"
+    >
+      <fury-card class="basic-forms route-animations-elements" fxFlex="grow">
+        <fury-card-header>
+          <fury-card-header-title class="capitalize">{{
+            mode
+          }}</fury-card-header-title>
+          <fury-card-header-sub-title>Manage User</fury-card-header-sub-title>
+          <fury-card-header-actions>
+            <button
+              class="icon"
+              type="button"
+              mat-icon-button
+              matTooltip="Go Back"
+              (click)="goBack()"
+            >
+              <mat-icon>reply_all</mat-icon>
+            </button>
+          </fury-card-header-actions>
+        </fury-card-header>
+        <fury-card-content fxLayout="column">
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="content" fxLayout="column" fxLayoutGap="8px">
+              <ng-container *ngIf="mode != 'change-password'">
+                <div
+                  fxLayout="column"
+                  fxLayout.gt-sm="row"
+                  fxLayoutGap.gt-sm="16px"
+                >
+                  <mat-form-field fxFlex.gt-sm>
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="FirstName" required />
+                    <mat-error
+                      *ngIf="form.get('FirstName').hasError('required')"
+                      >Firstname is required</mat-error
+                    >
+                  </mat-form-field>
+                  <mat-form-field fxFlex.gt-sm>
+                    <mat-label>Middle Name</mat-label>
+                    <input matInput formControlName="MiddleName" />
+                  </mat-form-field>
+                  <mat-form-field fxFlex.gt-sm>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="LastName" required />
+                    <mat-error *ngIf="form.get('LastName').hasError('required')"
+                      >Lastname is required</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+
+                <div
+                  fxLayout="column"
+                  fxLayout.gt-sm="row"
+                  fxLayoutGap.gt-sm="16px"
+                >
+                  <mat-form-field fxFlex.gt-sm>
+                    <mat-label>Username</mat-label>
+                    <input
+                      matInput
+                      formControlName="UserName"
+                      required
+                      [disabled]="mode == 'edit'"
+                    />
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-hint>Username is not editable.</mat-hint>
+                    <mat-error *ngIf="form.get('UserName').hasError('required')"
+                      >Username is required</mat-error
+                    >
+                  </mat-form-field>
+                  <mat-form-field fxFlex.gt-sm>
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="Email" />
+                  </mat-form-field>
+                </div>
+              </ng-container>
+
+              <ng-container
+                *ngIf="mode == 'create' || mode == 'change-password'"
+              >
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <input
+                    type="password"
+                    matInput
+                    formControlName="Password"
+                    required
+                  />
+                  <mat-error *ngIf="form.get('Password').hasError('required')"
+                    >Password is required</mat-error
+                  >
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Confirm Password</mat-label>
+                  <input
+                    type="password"
+                    matInput
+                    formControlName="ConfirmPassword"
+                    required
+                  />
+                  <mat-error
+                    *ngIf="form.get('ConfirmPassword').hasError('required')"
+                    >Confirm Password is required</mat-error
+                  >
+                </mat-form-field>
+              </ng-container>
+              <mat-checkbox
+                color="primary"
+                formControlName="IsActive"
+                *ngIf="mode != 'change-password'"
+                >Is Active</mat-checkbox
+              >
+              <div
+                class="actions"
+                fxLayout="row"
+                fxLayoutAlign="end center"
+                fxLayoutGap="8px"
+              >
+                <div>
+                  <mat-progress-spinner
+                    mode="indeterminate"
+                    color="accent"
+                    *ngIf="isLoading"
+                    [diameter]="30"
+                  ></mat-progress-spinner>
+                </div>
+                <button
+                  mat-button
+                  type="button"
+                  (click)="reset()"
+                  [disabled]="form.pristine || isLoading"
+                  color="primary"
+                >
+                  RESET
+                </button>
+                <button
+                  mat-raised-button
+                  type="submit"
+                  color="primary"
+                  [disabled]="form.invalid || isLoading"
+                >
+                  SAVE
+                </button>
+              </div>
+            </div>
+          </form>
+        </fury-card-content>
+      </fury-card>
+    </div>
+  </div>
+</div>
+
+<!-- <ngx-spinner
+  bdColor="rgba(51,51,51,0.83)"
+  size="large"
+  color="#280f27"
+  type="ball-clip-rotate-pulse"
+></ngx-spinner> -->

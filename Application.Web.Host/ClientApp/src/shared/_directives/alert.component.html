@@ -1,0 +1,26 @@
+﻿<style>
+  .alert-me-error {
+    display: block;
+    text-align: center;
+    color: red;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .alert-me-success {
+    display: block;
+    text-align: center;
+    color: red;
+    font-size: 16px;
+    font-weight: 400;
+  }
+</style>
+<div
+  *ngIf="message"
+  [ngClass]="{
+    alert: message,
+    'alert-success alert-me-success': message.type === 'success',
+    'alert-danger alert-me-error': message.type === 'error'
+  }"
+>
+  {{ message.text }}
+</div>

@@ -1,0 +1,126 @@
+<div class="padding">
+  <fury-breadcrumbs current="File Handler"> </fury-breadcrumbs>
+  <div fxLayout="row" fxLayoutAlign="start start">
+    <fury-scrollbar
+      [fxFlex]="menuWidth"
+      fxLayout="column"
+      fxShow.gt-sm
+      style="z-index: 999999999999"
+    >
+      <mat-list class="sticky-list" fxFlex="grow">
+        <!-- here pdf table grid -->
+        <fury-list [columns]="columns" (filterChange)="onFilterChange($event)">
+          <mat-table
+            #table
+            [dataSource]="dataSource"
+            matSort
+            (matSortChange)="sortData($event)"
+          >
+            <ng-container *ngFor="let column of columns">
+              <ng-container
+                *ngIf="column.isModelProperty"
+                [matColumnDef]="column.property"
+              >
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  {{ column.name }}</mat-header-cell
+                >
+                <mat-cell *matCellDef="let row">
+                  <span class="fury-mobile-label">{{ column.name }}</span>
+                  {{ row[column.property] }}
+                </mat-cell>
+              </ng-container>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <mat-header-cell
+                class="actions-cell"
+                *matHeaderCellDef
+                mat-sort-header
+              ></mat-header-cell>
+              <mat-cell class="actions-cell" *matCellDef="let row">
+                <span class="fury-mobile-label"></span>
+                <button
+                  type="button"
+                  mat-icon-button
+                  [matMenuTriggerFor]="actionsMenu"
+                  (click)="$event.stopPropagation()"
+                >
+                  <mat-icon>more_horiz</mat-icon>
+                </button>
+
+                <mat-menu
+                  #actionsMenu="matMenu"
+                  yPosition="below"
+                  xPosition="before"
+                >
+                  <button (click)="selectCurrentFile(row)" mat-menu-item>
+                    <span>View</span>
+                  </button>
+                </mat-menu>
+              </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="visibleColumns"></mat-header-row>
+
+            <mat-row
+              *matRowDef="let row; columns: visibleColumns"
+              [ngClass]="[
+                row.FileName == currentSelectedFileName
+                  ? 'clickable selected route-animations-elements'
+                  : 'clickable route-animations-elements'
+              ]"
+              (click)="selectCurrentFile(row)"
+            ></mat-row>
+          </mat-table>
+
+          <mat-paginator
+            class="paginator"
+            [length]="totalItems"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="pageSizeOptions"
+            [showFirstLastButtons]="true"
+            (page)="changePageSize($event)"
+          ></mat-paginator>
+        </fury-list>
+      </mat-list>
+    </fury-scrollbar>
+    <div
+      [fxFlex]="contentWidth"
+      fxLayout="column"
+      fxShow.gt-sm
+      fxLayoutGap="24px"
+      style="padding-left: 20px;"
+    >
+      <ng-container *ngIf="currentSelectedFileName">
+        <ngx-extended-pdf-viewer
+          [src]="currentPdfSource"
+          height="90vh"
+          useBrowserLocale="false"
+          showFindButton="false"
+          showOpenFileButton="false"
+          showSecondaryToolbarButton="false"
+          showHandToolButton="false"
+          delayFirstView="3000"
+          showZoomButtons="true"
+          showBookmarkButton="false"
+        ></ngx-extended-pdf-viewer>
+        <!-- <object
+          [data]="currentPdfSource | safe"
+          type="application/pdf"
+          height="700px;"
+          width="100%"
+        >
+          <p>
+            Your browser does not support pdf viewer, Click link to download pdf
+            <a target="_blank" [href]="currentPdfSource">
+              {{ currentSelectedFileName }}</a
+            >
+          </p>
+        </object> -->
+      </ng-container>
+      <ng-container *ngIf="!currentSelectedFileName">
+        <div>Document not selected.</div></ng-container
+      >
+    </div>
+  </div>
+</div>

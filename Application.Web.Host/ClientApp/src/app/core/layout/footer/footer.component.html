@@ -1,0 +1,28 @@
+<ng-container>
+  <div
+    *ngIf="visible"
+    [ngClass]="
+      message.type === 'success'
+        ? 'footer success'
+        : message.type === 'error'
+        ? 'footer error'
+        : 'footer'
+    "
+    fxLayout="row"
+  >
+    <div
+      fxLayout="row"
+      fxLayoutAlign="start center"
+      fxLayoutGap="24px"
+      fxFlex="grow"
+    >
+      <div class="name" fxHide fxShow.gt-sm *ngIf="message"></div>
+      <ng-container *ngIf="myMessage">{{ myMessage }}</ng-container>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <button type="button" mat-icon-button (click)="visible = false">
+        <mat-icon class="close">close</mat-icon>
+      </button>
+    </div>
+  </div>
+</ng-container>
