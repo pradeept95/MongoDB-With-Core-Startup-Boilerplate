@@ -28,6 +28,18 @@ namespace KNN.NULLPrinter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+             services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
             services.AddMvc(
                   options =>
                   {
@@ -67,7 +79,7 @@ namespace KNN.NULLPrinter
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "KNN Null Printer APIs",
+                    Title = "Web Api",
                     Description = "All Apis Docs",
                     TermsOfService = "None",
                     Contact = new Contact
@@ -78,7 +90,7 @@ namespace KNN.NULLPrinter
                     },
                     License = new License
                     {
-                        Name = "Use under Amnil License",
+                        Name = "Use under MIT License",
                         Url = "#"
                     }
                 });
