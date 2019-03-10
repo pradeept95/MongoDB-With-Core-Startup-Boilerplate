@@ -28,7 +28,7 @@ namespace KNN.NULLPrinter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-             services.Configure<CookiePolicyOptions>(options =>
+            services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
@@ -70,7 +70,7 @@ namespace KNN.NULLPrinter
                         .AllowCredentials()
                 )
             );
-            DependancyRegistrar.Register(services, Configuration); 
+            DependancyRegistrar.Register(services, Configuration);
             AuthConfigurer.Configure(services, Configuration);
 
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -96,7 +96,7 @@ namespace KNN.NULLPrinter
                 });
 
                 // Swagger 2.+ support
-                var security = new Dictionary<string,IEnumerable<string>>
+                var security = new Dictionary<string, IEnumerable<string>>
                 {
                     {"Bearer", new string[] { }},
                 };
@@ -118,12 +118,12 @@ namespace KNN.NULLPrinter
                 //    Type = "apiKey"
                 //}); 
             });
-             
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
-            }); 
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -164,7 +164,7 @@ namespace KNN.NULLPrinter
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "KNN Null Printer APIs"); 
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "KNN Null Printer APIs");
             });
 
             app.UseMvc(routes =>
