@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Helper.ContentWrapper.C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A8FE4180-E651-421C-84B2-2B488343DA9E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Service", "Src\KNN.NULLPrinter.Service\Application.Service.csproj", "{C088EFB9-B564-4B53-B2C1-B297A6836080}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Core", "Helpers\Application.Core\Application.Core.csproj", "{6F259F4C-35B6-4001-9903-3CD30C7F2E17}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.MongoDb.Core", "Src\Application.MongoDb.Core\Application.MongoDb.Core.csproj", "{E7E5E6F7-AD91-47BF-8DF1-B58EE271E9C5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Web.Host", "Application.Web.Host\Application.Web.Host.csproj", "{3D356B43-DB7E-4C7E-AA96-E7FF03F34005}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Service", "Src\Application.Service\Application.Service.csproj", "{6CF65A87-B330-4FBA-8310-0072BF5DBDF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +27,6 @@ Global
 		{9240E4A9-DAAF-4121-9FAB-4EB2780D6FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9240E4A9-DAAF-4121-9FAB-4EB2780D6FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9240E4A9-DAAF-4121-9FAB-4EB2780D6FC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C088EFB9-B564-4B53-B2C1-B297A6836080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C088EFB9-B564-4B53-B2C1-B297A6836080}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C088EFB9-B564-4B53-B2C1-B297A6836080}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C088EFB9-B564-4B53-B2C1-B297A6836080}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F259F4C-35B6-4001-9903-3CD30C7F2E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F259F4C-35B6-4001-9903-3CD30C7F2E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F259F4C-35B6-4001-9903-3CD30C7F2E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,15 +39,19 @@ Global
 		{3D356B43-DB7E-4C7E-AA96-E7FF03F34005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D356B43-DB7E-4C7E-AA96-E7FF03F34005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D356B43-DB7E-4C7E-AA96-E7FF03F34005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CF65A87-B330-4FBA-8310-0072BF5DBDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CF65A87-B330-4FBA-8310-0072BF5DBDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CF65A87-B330-4FBA-8310-0072BF5DBDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CF65A87-B330-4FBA-8310-0072BF5DBDF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9240E4A9-DAAF-4121-9FAB-4EB2780D6FC0} = {4A35752F-CB41-4E22-8243-023235AB2AE8}
-		{C088EFB9-B564-4B53-B2C1-B297A6836080} = {A8FE4180-E651-421C-84B2-2B488343DA9E}
 		{6F259F4C-35B6-4001-9903-3CD30C7F2E17} = {4A35752F-CB41-4E22-8243-023235AB2AE8}
 		{E7E5E6F7-AD91-47BF-8DF1-B58EE271E9C5} = {A8FE4180-E651-421C-84B2-2B488343DA9E}
+		{6CF65A87-B330-4FBA-8310-0072BF5DBDF6} = {A8FE4180-E651-421C-84B2-2B488343DA9E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9BF54461-5243-4F3D-946A-11FCCDB64D3F}
