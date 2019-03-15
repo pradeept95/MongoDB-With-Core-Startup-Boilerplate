@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http; 
 
-namespace KNN.NULLPrinter.Service.FileService
+namespace Application.Service.FileService
 {
     public interface IFileService
     {

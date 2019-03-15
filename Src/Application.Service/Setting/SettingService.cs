@@ -1,7 +1,7 @@
 ﻿using Api.Helper.ContentWrapper.Core.ResponseModel;
 using Application.MongoDb.Core.Repository;
-using KNN.NULLPrinter.Core.Dto.File;
-using KNN.NULLPrinter.Core.Models; 
+using Application.Core.Dto.File;
+using Application.Core.Models; 
 using Microsoft.AspNetCore.Hosting; 
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
@@ -11,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Service.Setting
+namespace Application.Service.Setting
 {
     public class SettingService : ISettingService
     { 

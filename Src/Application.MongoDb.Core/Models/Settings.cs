@@ -1,7 +1,7 @@
 ﻿using Application.MongoDb.Core.Entity;
 using MongoDB.Bson;
 
-namespace KNN.NULLPrinter.Core.Models
+namespace Application.Core.Models
 {
     public class Settings : IEntity<ObjectId>
     {

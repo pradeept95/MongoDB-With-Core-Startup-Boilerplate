@@ -1,4 +1,4 @@
-﻿namespace KNN.NULLPrinter.Core.Dto.Authenticate
+﻿namespace Application.Core.Dto.Authenticate
 {
     public class LoginResponseDto
     {

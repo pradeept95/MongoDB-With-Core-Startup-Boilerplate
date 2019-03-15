@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter
+namespace Application
 {
     public static class AuthConfigurer
     {

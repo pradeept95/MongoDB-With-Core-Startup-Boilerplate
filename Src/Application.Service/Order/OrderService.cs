@@ -1,8 +1,8 @@
 ﻿using Api.Helper.ContentWrapper.Core.ResponseModel;
 using Api.Helper.ContentWrapper.Core.WrapperModel;
 using Application.MongoDb.Core.Repository;
-using KNN.NULLPrinter.Core.Dto.Order;
-using KNN.NULLPrinter.Core.Models; 
+using Application.Core.Dto.Order;
+using Application.Core.Models; 
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Services.Orders
+namespace Application.Services.Orders
 {
     public class OrderService : IOrderService
     { 

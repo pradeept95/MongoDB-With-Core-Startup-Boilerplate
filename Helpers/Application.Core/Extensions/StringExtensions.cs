@@ -528,5 +528,7 @@ namespace Application.Core.Extensions
 
             return str.Left(maxLength - postfix.Length) + postfix;
         }
+
+        
     }
 }

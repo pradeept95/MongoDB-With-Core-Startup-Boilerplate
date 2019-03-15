@@ -1,15 +1,15 @@
 ﻿using Application.MongoDb.Core.Context;
 using Application.MongoDb.Core.Repository;
-using KNN.NULLPrinter.Service.PdfHandler;
-using KNN.NULLPrinter.Service.Setting;
-using KNN.NULLPrinter.Services.AppUser;
-using KNN.NULLPrinter.Services.Orders;
+using Application.Service.PdfHandler;
+using Application.Service.Setting;
+using Application.Services.AppUser;
+using Application.Services.Orders;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 
-namespace KNN.NULLPrinter
+namespace Application
 {
     public static class DependancyRegistrar
     {

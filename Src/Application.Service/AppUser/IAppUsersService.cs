@@ -1,16 +1,16 @@
 ﻿
 using Api.Helper.ContentWrapper.Core.ResponseModel;
-using KNN.NULLPrinter.Core.Dto.AppUser;
-using KNN.NULLPrinter.Core.Dto.Authenticate;
-using KNN.NULLPrinter.Core.Models;
+using Application.Core.Dto.AppUser;
+using Application.Core.Dto.Authenticate;
+using Application.Core.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Services.AppUser
+namespace Application.Services.AppUser
 {
     public interface IAppUsersService
     {
-        Task<KNN.NULLPrinter.Core.Models.AppUsers> Authenticate(LoginRequestDto input); 
+        Task<Application.Core.Models.AppUsers> Authenticate(LoginRequestDto input); 
         Task<IEnumerable<AppUsersDto>> GetAll();
         Task<PagedResultDto<AppUsersDto>> GetAllPaged(string searchText, int skip = 0, int maxResultCount = 10);
         Task<AppUsersDto> Get(string id);

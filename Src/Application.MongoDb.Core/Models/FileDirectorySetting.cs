@@ -2,7 +2,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace KNN.NULLPrinter.Core.Models
+namespace Application.Core.Models
 {
     public class FileDirectorySetting : IEntity<ObjectId>
     {

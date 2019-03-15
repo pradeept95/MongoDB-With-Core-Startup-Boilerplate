@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace KNN.NULLPrinter.Core.Dto.AppUser
+namespace Application.Core.Dto.AppUser
 {
     public class ChangePasswordDto
     { 

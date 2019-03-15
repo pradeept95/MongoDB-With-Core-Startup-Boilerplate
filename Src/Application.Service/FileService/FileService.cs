@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System; 
 using System.IO; 
 
-namespace KNN.NULLPrinter.Service.FileService
+namespace Application.Service.FileService
 {
     public class FileService : IFileService
     {

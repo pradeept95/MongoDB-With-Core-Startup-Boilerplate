@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KNN.NULLPrinter.Core.Dto.Order
+namespace Application.Core.Dto.Order
 { 
     public class OrderDto
     { 

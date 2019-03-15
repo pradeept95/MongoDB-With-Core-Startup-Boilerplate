@@ -1,13 +1,13 @@
 ﻿using Api.Helper.ContentWrapper.Core.BaseApiController;
 using Api.Helper.ContentWrapper.Core.ResponseModel; 
-using KNN.NULLPrinter.Core.Dto.Order;
-using KNN.NULLPrinter.Services.Orders;
+using Application.Core.Dto.Order;
+using Application.Services.Orders;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Area.ApiControllers
+namespace Application.Area.ApiControllers
 {
     public class OrderController : BaseApiController
     {

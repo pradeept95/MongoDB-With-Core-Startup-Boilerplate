@@ -1,4 +1,4 @@
-﻿namespace KNN.NULLPrinter.Core.Dto.File
+﻿namespace Application.Core.Dto.File
 {
     public class FileDirectorySettingDto
     {  

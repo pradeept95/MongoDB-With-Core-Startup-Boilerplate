@@ -1,11 +1,11 @@
 ﻿using Api.Helper.ContentWrapper.Core.BaseApiController;
-using KNN.NULLPrinter.Core.Models;
-using KNN.NULLPrinter.Services.AppUser;
+using Application.Core.Models;
+using Application.Services.AppUser;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Area.ApiControllers
+namespace Application.Area.ApiControllers
 {
     public class TagController : BaseApiController
     {

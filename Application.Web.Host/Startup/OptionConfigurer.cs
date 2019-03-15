@@ -1,13 +1,13 @@
 ﻿using Application.Core.Configuration.MongoDb;
 using Application.Core.Configuration.TokenAuth;
-using KNN.NULLPrinter.Core.Models;
+using Application.Core.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Text;
 
-namespace KNN.NULLPrinter
+namespace Application
 {
     public static class OptionConfigurer
     {

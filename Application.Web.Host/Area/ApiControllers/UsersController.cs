@@ -4,10 +4,10 @@ using Api.Helper.ContentWrapper.Core.WrapperModel;
 using Application.Core.Configuration.TokenAuth;
 using Application.Core.Constants;
 using Application.Core.Security.StringCipher;
-using KNN.NULLPrinter.Core.Dto.AppUser;
-using KNN.NULLPrinter.Core.Dto.Authenticate;
-using KNN.NULLPrinter.Core.Models;
-using KNN.NULLPrinter.Services.AppUser;
+using Application.Core.Dto.AppUser;
+using Application.Core.Dto.Authenticate;
+using Application.Core.Models;
+using Application.Services.AppUser;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -20,7 +20,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Area.ApiControllers
+namespace Application.Area.ApiControllers
 {
     public class UsersController : BaseApiController
     {

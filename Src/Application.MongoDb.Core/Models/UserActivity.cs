@@ -2,7 +2,7 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 
-namespace KNN.NULLPrinter.Core.Models
+namespace Application.Core.Models
 {
     public class UserActivity
     {

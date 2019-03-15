@@ -1,14 +1,14 @@
 ﻿using Api.Helper.ContentWrapper.Core.BaseApiController;
 using Api.Helper.ContentWrapper.Core.ResponseModel;
-using KNN.NULLPrinter.Core.Dto.File;
-using KNN.NULLPrinter.Service.PdfHandler;
+using Application.Core.Dto.File;
+using Application.Service.PdfHandler;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Area.ApiControllers
+namespace Application.Area.ApiControllers
 {
     public class PdfHandlerController : BaseApiController
     {

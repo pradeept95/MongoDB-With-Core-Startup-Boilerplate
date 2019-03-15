@@ -1,10 +1,10 @@
 ﻿
 using Api.Helper.ContentWrapper.Core.ResponseModel;
-using KNN.NULLPrinter.Core.Dto.Order;
+using Application.Core.Dto.Order;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Services.Orders
+namespace Application.Services.Orders
 {
     public interface IOrderService
     { 

@@ -1,5 +1,5 @@
 ﻿using Api.Helper.ContentWrapper.Core.WrapperModel;
-using KNN.NULLPrinter.Core.Models;
+using Application.Core.Models;
 using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks; 
@@ -8,7 +8,7 @@ using Application.MongoDb.Core.Repository;
 using MongoDB.Bson;
 using System.Linq;
 
-namespace KNN.NULLPrinter.Services.AppUser
+namespace Application.Services.AppUser
 {
     public class TagService : ITagService
     { 

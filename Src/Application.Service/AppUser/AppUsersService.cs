@@ -2,9 +2,9 @@
 using Api.Helper.ContentWrapper.Core.WrapperModel;
 using Application.Core.Security.PasswordHasher;
 using Application.MongoDb.Core.Repository;
-using KNN.NULLPrinter.Core.Dto.AppUser;
-using KNN.NULLPrinter.Core.Dto.Authenticate;
-using KNN.NULLPrinter.Core.Models;
+using Application.Core.Dto.AppUser;
+using Application.Core.Dto.Authenticate;
+using Application.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Services.AppUser
+namespace Application.Services.AppUser
 {
     public class AppUsersService : IAppUsersService
     { 

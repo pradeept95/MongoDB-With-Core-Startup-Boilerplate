@@ -1,10 +1,10 @@
 ﻿using Api.Helper.ContentWrapper.Core.ResponseModel;
-using KNN.NULLPrinter.Core.Dto.File;
+using Application.Core.Dto.File;
 using System;
 using System.Collections.Generic; 
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Service.PdfHandler
+namespace Application.Service.PdfHandler
 {
     public interface IPdfHandlerService
     {

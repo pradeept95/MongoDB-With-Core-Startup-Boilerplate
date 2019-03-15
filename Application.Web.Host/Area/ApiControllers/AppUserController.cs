@@ -1,14 +1,14 @@
 ﻿using Api.Helper.ContentWrapper.Core.BaseApiController;
 using Api.Helper.ContentWrapper.Core.ResponseModel;
-using KNN.NULLPrinter.Core.Dto.AppUser;
-using KNN.NULLPrinter.Services.AppUser;
+using Application.Core.Dto.AppUser;
+using Application.Services.AppUser;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace KNN.NULLPrinter.Area.ApiControllers
+namespace Application.Area.ApiControllers
 {
     public class AppUserController : BaseApiController
     {
