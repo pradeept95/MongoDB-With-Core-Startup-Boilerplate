@@ -18,7 +18,7 @@ namespace Application
 {
     public class Startup
     {
-        private const string _defaultCorsPolicyName = "localhost";
+        private const string _defaultCorsPolicyName = "CorsPolicy";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -139,8 +139,7 @@ namespace Application
                 app.UseExceptionHandler("/Error");
             }
 
-            app.UseCors(builder =>
-                builder.WithOrigins("*"));
+            app.UseCors(_defaultCorsPolicyName);
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
