@@ -2,6 +2,7 @@
 using Api.Helper.ContentWrapper.Core.ResponseModel;
 using Application.Core.Dto.AppUser;
 using Application.Services.AppUser;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -20,13 +21,13 @@ namespace Application.Area.ApiControllers
         }
          
         [HttpGet("GetAll")] 
+        [EnableQuery()]
         public async Task<ListResultDto<AppUsersDto>> GetAll()
         {
-            var cu = AppSession.UserId;
+            //var cu = AppSession.UserId; 
 
-
-            var claimsIdentity = this.User.Identity as ClaimsIdentity;
-            var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            //var claimsIdentity = this.User.Identity as ClaimsIdentity;
+            //var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
 
             var data =  await _appUsersService.GetAll(); 
@@ -34,6 +35,7 @@ namespace Application.Area.ApiControllers
         }
 
         [HttpGet("GetAllPaged")]
+        //[EnableQuery()]
         public async Task<PagedResultDto<AppUsersDto>> GetAll(string searchText, int skip = 0, int maxResultCount = 10)
         { 
            return await _appUsersService.GetAllPaged(searchText, skip, maxResultCount); 

@@ -1,5 +1,6 @@
 using Api.Helper.ContentWrapper.Core.Extensions;
 using Api.Helper.ContentWrapper.Core.Filters;
+using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,6 +41,9 @@ namespace Application
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+
+            //Adding OData Functionality
+            //services.AddOData();
 
             services.AddMvc(
                   options =>
@@ -119,7 +123,7 @@ namespace Application
                 //    Type = "apiKey"
                 //}); 
             });
-
+            
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -172,6 +176,14 @@ namespace Application
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
+
+                //routes.EnableDependencyInjection();
+                //routes.Filter()
+                //      .Select()
+                //      .OrderBy()
+                //      .Expand()
+                //      .Count(); 
+
             });
 
             app.UseSpa(spa =>
