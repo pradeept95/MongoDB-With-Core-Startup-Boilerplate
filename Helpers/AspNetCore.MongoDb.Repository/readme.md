@@ -24,13 +24,16 @@ Add following line at your import section
         {
 		  ......
 
-		  services.AddMongoDbRepository(Configuration);
+		  services.AddMongoDbRepository(Configuration); //OR
+
+
+		  services.AddMongoDbRepository("connectionString", "databaseName")
 
 		  ......
 		}
 
 
-and add "MongoSettings" section to your appsettings.json file as below
+and add "MongoSettings" section to your appsettings.json file as below iff you are passing "Configuration" to the service registrar
 
 	"MongoSettings": {
 		"ConnectionString": "mongodb://localhost:27017",

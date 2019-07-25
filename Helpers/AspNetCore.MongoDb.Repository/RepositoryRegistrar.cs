@@ -23,5 +23,19 @@ namespace AspNetCore.MongoDb.Repository
             services.AddSingleton<IMongoDbContext, MongoDbContext>();
             services.AddSingleton(typeof(IMongoRepository<,>), typeof(MongoRepository<,>));
         }
+
+        public static void AddMongoDbRepository(this IServiceCollection services, string connectionString, string database)
+        {
+            services.Configure<MongoDbSettings>(options =>
+            {
+                options.ConnectionString
+                    = connectionString;
+                options.Database
+                    = database;
+            });
+
+            services.AddSingleton<IMongoDbContext, MongoDbContext>();
+            services.AddSingleton(typeof(IMongoRepository<,>), typeof(MongoRepository<,>));
+        }
     }
 }
