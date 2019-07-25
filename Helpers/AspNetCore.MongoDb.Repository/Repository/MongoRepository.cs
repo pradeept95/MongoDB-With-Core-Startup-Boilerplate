@@ -1,6 +1,5 @@
-﻿using Abp.Dependency;
-using Application.Core.Configuration.MongoDb;
-using Application.MongoDb.Core.Entity;
+﻿using AspNetCore.MongoDb.Repository.Configuration.MongoDb;
+using AspNetCore.MongoDb.Repository.Entity;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -10,14 +9,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Application.MongoDb.Core.Repository
+namespace AspNetCore.MongoDb.Repository
 {
     /// <summary>
     /// Implements IRepository for MongoDB.
     /// </summary>
     /// <typeparam name="TEntity">Type of the Entity for this repository</typeparam>
     /// <typeparam name="TPrimaryKey">Primary key of the entity</typeparam>
-    public class MongoRepository<TEntity, TPrimaryKey> : IMongoRepository<TEntity, TPrimaryKey>, ISingletonDependency
+    public class MongoRepository<TEntity, TPrimaryKey> : IMongoRepository<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
         private readonly IMongoDatabase _database = null;

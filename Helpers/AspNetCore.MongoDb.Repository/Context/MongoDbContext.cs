@@ -1,8 +1,8 @@
-﻿using Application.Core.Configuration.MongoDb;
+﻿using AspNetCore.MongoDb.Repository.Configuration.MongoDb;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace Application.MongoDb.Core.Context
+namespace AspNetCore.MongoDb.Repository.Context
 {
     public class MongoDbContext : IMongoDbContext
     {

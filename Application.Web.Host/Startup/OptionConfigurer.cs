@@ -1,5 +1,4 @@
-﻿using Application.Core.Configuration.MongoDb;
-using Application.Core.Configuration.TokenAuth;
+﻿using Application.Core.Configuration.TokenAuth;
 using Application.Core.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,15 +29,7 @@ namespace Application
                 options.Audience = configuration["Authentication:JwtBearer:Audience"];
                 options.SigningCredentials = new SigningCredentials(options.SecurityKey, SecurityAlgorithms.HmacSha256);
                 options.Expiration = TimeSpan.FromDays(1);
-            });
-
-            services.Configure<MongoDbSettings>(options =>
-            {
-                options.ConnectionString
-                    = configuration["MongoSettings:ConnectionString"];
-                options.Database
-                    = configuration["MongoSettings:Database"]; 
-            });
+            }); 
 
         }
     }

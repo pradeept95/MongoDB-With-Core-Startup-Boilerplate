@@ -1,4 +1,4 @@
-﻿namespace Application.Core.Configuration.MongoDb
+﻿namespace AspNetCore.MongoDb.Repository.Configuration.MongoDb
 {
     public class MongoDbSettings
     {

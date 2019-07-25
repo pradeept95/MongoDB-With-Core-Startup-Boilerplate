@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Application.MongoDb.Core.Entity
+namespace AspNetCore.MongoDb.Repository.Entity
 { 
 public interface IEntity<TPrimaryKey>
 {

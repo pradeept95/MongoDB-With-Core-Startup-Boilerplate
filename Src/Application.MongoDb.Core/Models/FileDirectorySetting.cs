@@ -1,4 +1,5 @@
-﻿using Application.MongoDb.Core.Entity;
+﻿
+using AspNetCore.MongoDb.Repository.Entity;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 

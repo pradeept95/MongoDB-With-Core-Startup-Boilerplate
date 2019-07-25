@@ -2,11 +2,11 @@
 using Application.Core.Models;
 using Microsoft.Extensions.Options;
 using System;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
 using System.Net.Http;
-using Application.MongoDb.Core.Repository;
 using MongoDB.Bson;
 using System.Linq;
+using AspNetCore.MongoDb.Repository;
 
 namespace Application.Services.AppUser
 {

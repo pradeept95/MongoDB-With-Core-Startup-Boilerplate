@@ -1,11 +1,11 @@
-﻿using Application.MongoDb.Core.Entity;
+﻿using AspNetCore.MongoDb.Repository.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Application.MongoDb.Core.Repository
+namespace AspNetCore.MongoDb.Repository
 {
     //
     // Summary:

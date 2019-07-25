@@ -1,4 +1,4 @@
-﻿namespace Application.MongoDb.Core.Context
+﻿namespace AspNetCore.MongoDb.Repository.Context
 {
     public interface IMongoDbContext
     {

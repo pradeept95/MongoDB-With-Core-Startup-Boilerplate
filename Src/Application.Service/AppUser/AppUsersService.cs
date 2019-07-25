@@ -1,18 +1,16 @@
 ﻿using Api.Helper.ContentWrapper.Core.ResponseModel;
 using Api.Helper.ContentWrapper.Core.WrapperModel;
 using Application.Core.Security.PasswordHasher;
-using Application.MongoDb.Core.Repository;
 using Application.Core.Dto.AppUser;
 using Application.Core.Dto.Authenticate;
 using Application.Core.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCore.MongoDb.Repository;
 
 namespace Application.Services.AppUser
 {

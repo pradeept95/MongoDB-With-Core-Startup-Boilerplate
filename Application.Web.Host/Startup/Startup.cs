@@ -1,5 +1,6 @@
 using Api.Helper.ContentWrapper.Core.Extensions;
 using Api.Helper.ContentWrapper.Core.Filters;
+using AspNetCore.MongoDb.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -73,6 +74,8 @@ namespace Application
             );
             DependancyRegistrar.Register(services, Configuration);
             AuthConfigurer.Configure(services, Configuration);
+
+            services.AddMongoDbRepository(Configuration);
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
