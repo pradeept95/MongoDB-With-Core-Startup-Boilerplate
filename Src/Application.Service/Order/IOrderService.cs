@@ -1,5 +1,4 @@
-﻿
-using Api.Helper.ContentWrapper.Core.ResponseModel;
+﻿using Api.ResultWrapper.AspNetCore.ResponseModel;
 using Application.Core.Dto.Order;
 using System.Collections.Generic;
 using System.Threading.Tasks;

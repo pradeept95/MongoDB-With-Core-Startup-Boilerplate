@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "helpers", "helpers", "{4A35752F-CB41-4E22-8243-023235AB2AE8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Helper.ContentWrapper.Core", "Helpers\Api.Helper.ContentWrapper.Core\Api.Helper.ContentWrapper.Core.csproj", "{9240E4A9-DAAF-4121-9FAB-4EB2780D6FC0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A8FE4180-E651-421C-84B2-2B488343DA9E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Core", "Helpers\Application.Core\Application.Core.csproj", "{6F259F4C-35B6-4001-9903-3CD30C7F2E17}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9240E4A9-DAAF-4121-9FAB-4EB2780D6FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9240E4A9-DAAF-4121-9FAB-4EB2780D6FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9240E4A9-DAAF-4121-9FAB-4EB2780D6FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9240E4A9-DAAF-4121-9FAB-4EB2780D6FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F259F4C-35B6-4001-9903-3CD30C7F2E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F259F4C-35B6-4001-9903-3CD30C7F2E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F259F4C-35B6-4001-9903-3CD30C7F2E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,7 +48,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9240E4A9-DAAF-4121-9FAB-4EB2780D6FC0} = {4A35752F-CB41-4E22-8243-023235AB2AE8}
 		{6F259F4C-35B6-4001-9903-3CD30C7F2E17} = {4A35752F-CB41-4E22-8243-023235AB2AE8}
 		{E7E5E6F7-AD91-47BF-8DF1-B58EE271E9C5} = {A8FE4180-E651-421C-84B2-2B488343DA9E}
 		{6CF65A87-B330-4FBA-8310-0072BF5DBDF6} = {A8FE4180-E651-421C-84B2-2B488343DA9E}

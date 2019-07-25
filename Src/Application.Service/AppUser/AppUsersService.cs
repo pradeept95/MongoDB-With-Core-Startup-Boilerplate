@@ -1,6 +1,4 @@
-﻿using Api.Helper.ContentWrapper.Core.ResponseModel;
-using Api.Helper.ContentWrapper.Core.WrapperModel;
-using Application.Core.Security.PasswordHasher;
+﻿using Application.Core.Security.PasswordHasher;
 using Application.Core.Dto.AppUser;
 using Application.Core.Dto.Authenticate;
 using Application.Core.Models;
@@ -11,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AspNetCore.MongoDb.Repository;
+using Api.ResultWrapper.AspNetCore.WrapperModel;
+using Api.ResultWrapper.AspNetCore.ResponseModel;
 
 namespace Application.Services.AppUser
 {

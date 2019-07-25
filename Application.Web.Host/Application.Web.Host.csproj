@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Helpers\Api.Helper.ContentWrapper.Core\Api.Helper.ContentWrapper.Core.csproj" />
     <ProjectReference Include="..\Helpers\Application.Core\Application.Core.csproj" />
     <ProjectReference Include="..\Src\Application.MongoDb.Core\Application.MongoDb.Core.csproj" />
     <ProjectReference Include="..\Src\Application.Service\Application.Service.csproj" />

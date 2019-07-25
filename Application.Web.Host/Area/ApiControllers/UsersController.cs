@@ -1,6 +1,4 @@
 ﻿using Api.Helper.ContentWrapper.Core.BaseApiController;
-using Api.Helper.ContentWrapper.Core.ResponseModel;
-using Api.Helper.ContentWrapper.Core.WrapperModel;
 using Application.Core.Configuration.TokenAuth;
 using Application.Core.Constants;
 using Application.Core.Security.StringCipher;
@@ -11,14 +9,14 @@ using Application.Services.AppUser;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
+using Api.ResultWrapper.AspNetCore.ResponseModel;
+using Api.ResultWrapper.AspNetCore.WrapperModel;
 
 namespace Application.Area.ApiControllers
 {

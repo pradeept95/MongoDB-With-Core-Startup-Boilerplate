@@ -1,9 +1,5 @@
-﻿
-using Api.Helper.ContentWrapper.Core.ResponseModel;
-using Application.Core.Dto.AppUser;
-using Application.Core.Dto.Authenticate;
+﻿using Api.ResultWrapper.AspNetCore.ResponseModel;
 using Application.Core.Models;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

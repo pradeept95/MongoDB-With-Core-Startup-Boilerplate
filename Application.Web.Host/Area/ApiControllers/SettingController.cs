@@ -1,6 +1,6 @@
 ﻿using Api.Helper.ContentWrapper.Core.BaseApiController;
-using Api.Helper.ContentWrapper.Core.ResponseModel;
-using Api.Helper.ContentWrapper.Core.WrapperModel;
+using Api.ResultWrapper.AspNetCore.ResponseModel;
+using Api.ResultWrapper.AspNetCore.WrapperModel;
 using Application.Core.Dto.AppUser;
 using Application.Core.Dto.Authenticate;
 using Application.Core.Dto.File;

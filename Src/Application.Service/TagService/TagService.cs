@@ -1,5 +1,4 @@
-﻿using Api.Helper.ContentWrapper.Core.WrapperModel;
-using Application.Core.Models;
+﻿using Application.Core.Models;
 using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
@@ -7,6 +6,7 @@ using System.Net.Http;
 using MongoDB.Bson;
 using System.Linq;
 using AspNetCore.MongoDb.Repository;
+using Api.ResultWrapper.AspNetCore.WrapperModel;
 
 namespace Application.Services.AppUser
 {

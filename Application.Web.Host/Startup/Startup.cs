@@ -1,5 +1,5 @@
-using Api.Helper.ContentWrapper.Core.Extensions;
-using Api.Helper.ContentWrapper.Core.Filters;
+using Api.ResultWrapper.AspNetCore.Extensions;
+using Api.ResultWrapper.AspNetCore.Filters;
 using AspNetCore.MongoDb.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

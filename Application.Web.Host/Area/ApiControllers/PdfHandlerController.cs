@@ -1,11 +1,8 @@
-﻿using Api.Helper.ContentWrapper.Core.BaseApiController;
-using Api.Helper.ContentWrapper.Core.ResponseModel;
+﻿using Api.ResultWrapper.AspNetCore.BaseApiController;
+using Api.ResultWrapper.AspNetCore.ResponseModel;
 using Application.Core.Dto.File;
 using Application.Service.PdfHandler;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Application.Area.ApiControllers

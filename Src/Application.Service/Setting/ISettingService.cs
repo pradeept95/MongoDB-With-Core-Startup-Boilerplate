@@ -1,7 +1,5 @@
-﻿using Api.Helper.ContentWrapper.Core.ResponseModel;
+﻿using Api.ResultWrapper.AspNetCore.ResponseModel;
 using Application.Core.Dto.File;
-using System;
-using System.Collections.Generic; 
 using System.Threading.Tasks;
 
 namespace Application.Service.Setting

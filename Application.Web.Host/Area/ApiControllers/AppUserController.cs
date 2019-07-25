@@ -1,9 +1,7 @@
-﻿using Api.Helper.ContentWrapper.Core.BaseApiController;
-using Api.Helper.ContentWrapper.Core.ResponseModel;
+﻿using Api.ResultWrapper.AspNetCore.BaseApiController;
+using Api.ResultWrapper.AspNetCore.ResponseModel;
 using Application.Core.Dto.AppUser;
 using Application.Services.AppUser;
-using Microsoft.AspNet.OData;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Security.Claims;
@@ -21,7 +19,7 @@ namespace Application.Area.ApiControllers
         }
          
         [HttpGet("GetAll")] 
-        [EnableQuery()]
+        //[EnableQuery()]
         public async Task<ListResultDto<AppUsersDto>> GetAll()
         {
             //var cu = AppSession.UserId; 

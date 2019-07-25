@@ -1,11 +1,11 @@
-﻿using Api.Helper.ContentWrapper.Core.ResponseModel;
-using Application.Core.Dto.File;
+﻿using Application.Core.Dto.File;
 using Application.Core.Models;
 using Microsoft.AspNetCore.Hosting;
 using MongoDB.Bson;
 using System.Linq;
 using System.Threading.Tasks;
 using AspNetCore.MongoDb.Repository;
+using Api.ResultWrapper.AspNetCore.ResponseModel;
 
 namespace Application.Service.Setting
 {

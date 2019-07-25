@@ -1,5 +1,5 @@
-﻿using Api.Helper.ContentWrapper.Core.ResponseModel;
-using Api.Helper.ContentWrapper.Core.WrapperModel; 
+﻿using Api.ResultWrapper.AspNetCore.ResponseModel;
+using Api.ResultWrapper.AspNetCore.WrapperModel;
 using Application.Core.Dto.Order;
 using Application.Core.Models;
 using AspNetCore.MongoDb.Repository;
