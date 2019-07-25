@@ -30,4 +30,13 @@ Add following line at your import section
 		}
 
 
+and add "MongoSettings" section to your appsettings.json file as below
+
+	"MongoSettings": {
+		"ConnectionString": "mongodb://localhost:27017",
+		"Database": "KnnNullPrinterDb"
+	 },
+
+
+
 #Usase
