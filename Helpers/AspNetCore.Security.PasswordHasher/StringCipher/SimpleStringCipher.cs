@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Application.Core.Security.StringCipher
+namespace AspNetCore.Security.PasswordHasher
 {
     /// <summary>
     /// Can be used to simply encrypt/decrypt texts.

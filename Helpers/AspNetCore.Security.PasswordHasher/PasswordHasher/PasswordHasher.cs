@@ -2,7 +2,7 @@
 using System;
 using System.Security.Cryptography;
 
-namespace Application.Core.Security.PasswordHasher
+namespace AspNetCore.Security.PasswordHasher
 {
     public static class PasswordHasher
     {
@@ -37,8 +37,7 @@ namespace Application.Core.Security.PasswordHasher
         private const int SaltByteSize = 24;
         private const int HashByteSize = 24;
         private const int HasingIterationsCount = 10101;
-
-
+ 
         public static string HashPassword(string password)
         {
             // http://stackoverflow.com/questions/19957176/asp-net-identity-password-hashing

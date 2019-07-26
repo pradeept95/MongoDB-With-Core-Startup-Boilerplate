@@ -7,6 +7,10 @@
     <RepositoryType>Public</RepositoryType>
     <PackageTags>MongoDb AspNetCore</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/pradeept95/MongoDB-With-Core-Startup-Boilerplate/tree/master/Helpers/AspNetCore.MongoDb.Repository</PackageProjectUrl>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

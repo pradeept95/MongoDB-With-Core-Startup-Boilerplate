@@ -1,5 +1,5 @@
-﻿using Application.Core.Constants;
-using Application.Core.Security.StringCipher; 
+﻿using Application.Core.Constants; 
+using AspNetCore.Security.PasswordHasher;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

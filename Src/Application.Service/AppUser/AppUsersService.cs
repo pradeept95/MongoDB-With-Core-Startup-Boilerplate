@@ -1,5 +1,4 @@
-﻿using Application.Core.Security.PasswordHasher;
-using Application.Core.Dto.AppUser;
+﻿using Application.Core.Dto.AppUser;
 using Application.Core.Dto.Authenticate;
 using Application.Core.Models;
 using MongoDB.Bson;
@@ -11,6 +10,7 @@ using System.Threading.Tasks;
 using AspNetCore.MongoDb.Repository;
 using Api.ResultWrapper.AspNetCore.WrapperModel;
 using Api.ResultWrapper.AspNetCore.ResponseModel;
+using AspNetCore.Security.PasswordHasher;
 
 namespace Application.Services.AppUser
 {

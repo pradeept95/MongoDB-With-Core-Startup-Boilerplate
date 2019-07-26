@@ -1,7 +1,6 @@
 ﻿using Api.Helper.ContentWrapper.Core.BaseApiController;
 using Application.Core.Configuration.TokenAuth;
-using Application.Core.Constants;
-using Application.Core.Security.StringCipher;
+using Application.Core.Constants; 
 using Application.Core.Dto.AppUser;
 using Application.Core.Dto.Authenticate;
 using Application.Core.Models;
@@ -17,6 +16,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Api.ResultWrapper.AspNetCore.ResponseModel;
 using Api.ResultWrapper.AspNetCore.WrapperModel;
+using AspNetCore.Security.PasswordHasher;
 
 namespace Application.Area.ApiControllers
 {
