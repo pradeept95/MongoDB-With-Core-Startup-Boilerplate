@@ -119,26 +119,36 @@ namespace AspNetCore.MongoDb.Repository
             return entity;
         }
 
-        public void Delete(TEntity entity)
+        public bool Delete(TEntity entity)
         {
-            Delete(entity.Id);
+            return Delete(entity.Id);
         }
 
-        public async Task DeleteAsync(TEntity entity)
+        public async Task<bool> DeleteAsync(TEntity entity)
         {
-            await DeleteAsync(entity.Id);
+            return await DeleteAsync(entity.Id);
         }
 
-        public void Delete(TPrimaryKey id)
+        public bool Delete(TPrimaryKey id)
         {
             FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id, id);
-            Collection.DeleteOne(filter);
+            var result = Collection.DeleteOne(filter);
+            if (result.DeletedCount == 0)
+            {
+                throw new System.Exception("There is no such an entity with given key. Entity type: " + typeof(TEntity).FullName + ", primary key: " + id);
+            }
+            return result.IsAcknowledged;
         }
 
-        public async Task DeleteAsync(TPrimaryKey id)
+        public async Task<bool> DeleteAsync(TPrimaryKey id)
         {
             FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id, id);
-            await Collection.DeleteOneAsync(filter);
+            var result = await Collection.DeleteOneAsync(filter);
+            if (result.DeletedCount == 0)
+            {
+                throw new System.Exception("There is no such an entity with given key. Entity type: " + typeof(TEntity).FullName + ", primary key: " + id);
+            }
+            return result.IsAcknowledged;
         }
 
         public Task<TEntity> UpdateAsync(ObjectId id, Func<TEntity, Task<TEntity>> updateAction)
@@ -177,26 +187,46 @@ namespace AspNetCore.MongoDb.Repository
                 .CountDocumentsAsync());
         }
 
-        public void Delete(ObjectId id)
+        public bool Delete(ObjectId id)
         {
             FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id.ToString(), id.ToString());
-            Collection.DeleteOne(filter);
+            var result = Collection.DeleteOne(filter);
+            if (result.DeletedCount == 0)
+            {
+                throw new System.Exception("There is no such an entity with given key. Entity type: " + typeof(TEntity).FullName + ", primary key: " + id);
+            }
+            return result.IsAcknowledged;
         }
 
-        public void Delete(Expression<Func<TEntity, bool>> predicate)
+        public bool Delete(Expression<Func<TEntity, bool>> predicate)
         {
-            Collection.DeleteMany(predicate);
+           var result = Collection.DeleteMany(predicate);
+            if (result.DeletedCount == 0)
+            {
+                throw new System.Exception("Item not found to delete.");
+            }
+            return result.IsAcknowledged;
         }
 
-        public async Task DeleteAsync(ObjectId id)
+        public async Task<bool> DeleteAsync(ObjectId id)
         {
             FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id.ToString(), id.ToString());
-            await Collection.DeleteOneAsync(filter);
+            var result = await Collection.DeleteOneAsync(filter);
+            if (result.DeletedCount == 0)
+            {
+                throw new System.Exception("There is no such an entity with given key. Entity type: " + typeof(TEntity).FullName + ", primary key: " + id);
+            }
+            return result.IsAcknowledged;
         }
 
-        public async Task DeleteAsync(Expression<Func<TEntity, bool>> predicate)
+        public async Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            await Collection.DeleteManyAsync(predicate);
+            var result = await Collection.DeleteManyAsync(predicate);
+            if (result.DeletedCount == 0)
+            {
+                throw new System.Exception("Item not found to delete.");
+            }
+            return result.IsAcknowledged;
         }
 
         public TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate)

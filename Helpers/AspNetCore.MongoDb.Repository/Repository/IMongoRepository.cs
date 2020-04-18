@@ -9,17 +9,6 @@ using System.Threading.Tasks;
 
 namespace AspNetCore.MongoDb.Repository
 {
-    //
-    // Summary:
-    //     This interface is implemented by all repositories to ensure implementation of
-    //     fixed methods.
-    //
-    // Type parameters:
-    //   TEntity:
-    //     Main Entity type this repository works on
-    //
-    //   TPrimaryKey:
-    //     Primary key type of the entity
     public interface IMongoRepository<TEntity, TPrimaryKey> where TEntity : class, IEntity<TPrimaryKey>
     {
         IMongoCollection<TEntity> Collection { get; }
@@ -28,14 +17,14 @@ namespace AspNetCore.MongoDb.Repository
         int Count(Expression<Func<TEntity, bool>> predicate);
         Task<int> CountAsync();
         Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate);
-        void Delete(Expression<Func<TEntity, bool>> predicate);
-        void Delete(ObjectId id);
-        void Delete(TEntity entity);
-        void Delete(TPrimaryKey id);
-        Task DeleteAsync(Expression<Func<TEntity, bool>> predicate);
-        Task DeleteAsync(ObjectId id);
-        Task DeleteAsync(TEntity entity);
-        Task DeleteAsync(TPrimaryKey id);
+        bool Delete(Expression<Func<TEntity, bool>> predicate);
+        bool Delete(ObjectId id);
+        bool Delete(TEntity entity);
+        bool Delete(TPrimaryKey id);
+        Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<bool> DeleteAsync(ObjectId id);
+        Task<bool> DeleteAsync(TEntity entity);
+        Task<bool> DeleteAsync(TPrimaryKey id);
         TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate);
         TEntity FirstOrDefault(ObjectId id);
         TEntity FirstOrDefault(TPrimaryKey id);
