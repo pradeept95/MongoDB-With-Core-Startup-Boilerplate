@@ -16,8 +16,7 @@ namespace AspNetCore.MongoDb.Repository
     /// </summary>
     /// <typeparam name="TEntity">Type of the Entity for this repository</typeparam>
     /// <typeparam name="TPrimaryKey">Primary key of the entity</typeparam>
-    public class MongoRepository<TEntity, TPrimaryKey> : IMongoRepository<TEntity, TPrimaryKey>
-        where TEntity : class, IEntity<TPrimaryKey>
+    public class MongoRepository<TEntity, TPrimaryKey> : IMongoRepository<TEntity, TPrimaryKey> where TEntity : class, IEntity<TPrimaryKey>
     {
         private readonly IMongoDatabase _database = null;
 
@@ -67,7 +66,7 @@ namespace AspNetCore.MongoDb.Repository
             {
                 throw new System.Exception("There is no such an entity with given primary key. Entity type: " + typeof(TEntity).FullName + ", primary key: " + id);
             }
-            return  await entity.FirstOrDefaultAsync();
+            return await entity.FirstOrDefaultAsync();
         }
 
         public TEntity FirstOrDefault(TPrimaryKey id)
@@ -139,207 +138,176 @@ namespace AspNetCore.MongoDb.Repository
         public async Task DeleteAsync(TPrimaryKey id)
         {
             FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id, id);
-            await Collection.DeleteOneAsync(filter); 
+            await Collection.DeleteOneAsync(filter);
         }
 
-        public Task<TEntity> UpdateAsync(ObjectId id, Func<TEntity, Task> updateAction)
+        public Task<TEntity> UpdateAsync(ObjectId id, Func<TEntity, Task<TEntity>> updateAction)
         {
-            throw new NotImplementedException();
+
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id.ToString(), id.ToString());
+            var entity = Collection.Find(filter);
+            if (entity == null)
+            {
+                throw new System.Exception("There is no such an entity with given key. Entity type: " + typeof(TEntity).FullName + ", primary key: " + id);
+            }
+
+            return updateAction((TEntity)entity);
         }
 
         public int Count()
         {
-            throw new NotImplementedException();
+            return (int)Collection.Find(_ => true).CountDocuments();
         }
 
         public int Count(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return (int)Collection.Find(predicate)
+                .CountDocuments();
         }
 
-        public Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
+        public async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return (int)(await Collection.Find(predicate)
+                .CountDocumentsAsync());
         }
 
-        public Task<int> CountAsync()
+        public async Task<int> CountAsync()
         {
-            throw new NotImplementedException();
+            return (int)(await Collection.Find(_ => true)
+                .CountDocumentsAsync());
         }
 
         public void Delete(ObjectId id)
         {
-            throw new NotImplementedException();
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id.ToString(), id.ToString());
+            Collection.DeleteOne(filter);
         }
 
         public void Delete(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            Collection.DeleteMany(predicate);
         }
 
-        public Task DeleteAsync(ObjectId id)
+        public async Task DeleteAsync(ObjectId id)
         {
-            throw new NotImplementedException();
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id.ToString(), id.ToString());
+            await Collection.DeleteOneAsync(filter);
         }
 
-        public Task DeleteAsync(Expression<Func<TEntity, bool>> predicate)
+        public async Task DeleteAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            await Collection.DeleteManyAsync(predicate);
         }
 
         public TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var entity = Collection.Find(predicate);
+            if (entity == null)
+            {
+                throw new System.Exception("There is no such an entity with given primary key.");
+            }
+            return entity.FirstOrDefault();
         }
 
         public TEntity FirstOrDefault(ObjectId id)
         {
-            throw new NotImplementedException();
+
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id.ToString(), id.ToString());
+            var entity = Collection.Find(filter);
+            if (entity == null)
+            {
+                throw new System.Exception("There is no such an entity with given primary key. Entity type: " + typeof(TEntity).FullName + ", primary key: " + id);
+            }
+            return entity.FirstOrDefault();
+
         }
 
-        public Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
+        public async Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var entity = await Collection.FindAsync(predicate);
+            if (entity == null)
+            {
+                throw new System.Exception("There is no such an entity with given primary key.");
+            }
+            return await entity.FirstOrDefaultAsync();
         }
 
-        public Task<TEntity> FirstOrDefaultAsync(ObjectId id)
+        public async Task<TEntity> FirstOrDefaultAsync(ObjectId id)
         {
-            throw new NotImplementedException();
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id.ToString(), id.ToString());
+            var entity = await Collection.FindAsync(filter);
+            if (entity == null)
+            {
+                throw new System.Exception("There is no such an entity with given primary key.");
+            }
+            return await entity.FirstOrDefaultAsync();
         }
 
         public TEntity Get(ObjectId id)
         {
-            throw new NotImplementedException();
-        }
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id.ToString(), id.ToString());
+            var entity = Collection.Find(filter);
+            if (entity == null)
+            {
+                throw new System.Exception("There is no such an entity with given primary key. Entity type: " + typeof(TEntity).FullName + ", primary key: " + id);
+            }
 
-        public IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] propertySelectors)
-        {
-            throw new NotImplementedException();
+            return (TEntity)entity;
         }
 
         public List<TEntity> GetAllList(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var entity = Collection.Find(predicate);
+            return entity.ToList();
         }
 
         public List<TEntity> GetAllList()
         {
-            throw new NotImplementedException();
+            var entity = Collection.Find(_ => true);
+            return entity.ToList();
         }
 
-        public Task<List<TEntity>> GetAllListAsync(Expression<Func<TEntity, bool>> predicate)
+        public async Task<List<TEntity>> GetAllListAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return await Collection.Find(_ => true).ToListAsync();
         }
 
-        public Task<TEntity> GetAsync(ObjectId id)
+        public async Task<TEntity> GetAsync(ObjectId id)
         {
-            throw new NotImplementedException();
-        }
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(m => m.Id.ToString(), id.ToString());
+            var entity = await Collection.FindAsync(filter);
+            if (entity == null)
+            {
+                throw new System.Exception("There is no such an entity with given primary key. Entity type: " + typeof(TEntity).FullName + ", primary key: " + id);
+            }
 
-        public ObjectId InsertAndGetId(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TEntity InsertOrUpdate(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ObjectId InsertOrUpdateAndGetId(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ObjectId> InsertOrUpdateAndGetIdAsync(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<TEntity> InsertOrUpdateAsync(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TEntity Load(ObjectId id)
-        {
-            throw new NotImplementedException();
+            return (TEntity)entity;
         }
 
         public long LongCount(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return Collection.Find(predicate)
+                 .CountDocuments();
         }
 
         public long LongCount()
         {
-            throw new NotImplementedException();
+            return Collection.Find(_ => true)
+                .CountDocuments();
         }
 
-        public Task<long> LongCountAsync()
+        public async Task<long> LongCountAsync()
         {
-            throw new NotImplementedException();
+            return await Collection.Find(_ => true)
+                 .CountDocumentsAsync();
         }
 
-        public Task<long> LongCountAsync(Expression<Func<TEntity, bool>> predicate)
+        public async Task<long> LongCountAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return await Collection.Find(predicate)
+                 .CountDocumentsAsync();
         }
 
-        public T Query<T>(Func<IQueryable<TEntity>, T> queryMethod)
-        {
-            throw new NotImplementedException();
-        }
 
-        public TEntity Single(Expression<Func<TEntity, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<TEntity> SingleAsync(Expression<Func<TEntity, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TEntity Update(ObjectId id, Action<TEntity> updateAction)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<TEntity> FirstOrDefaultAsync(TPrimaryKey id)
-        {
-            throw new NotImplementedException();
-        }
-
-        TPrimaryKey IMongoRepository<TEntity, TPrimaryKey>.InsertAndGetId(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        TPrimaryKey IMongoRepository<TEntity, TPrimaryKey>.InsertOrUpdateAndGetId(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TPrimaryKey> IMongoRepository<TEntity, TPrimaryKey>.InsertOrUpdateAndGetIdAsync(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TEntity Load(TPrimaryKey id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TEntity Update(TPrimaryKey id, Action<TEntity> updateAction)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<TEntity> UpdateAsync(TPrimaryKey id, Func<TEntity, Task> updateAction)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
